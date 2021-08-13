@@ -18,8 +18,9 @@ body{
     height: 75px;
     width: 20px;
     position: absolute;
+    top: 0%;
 }
-#player2{
+#computer{
     background-color: red;
     height: 75px;
     width: 20px;
