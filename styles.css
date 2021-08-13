@@ -4,7 +4,9 @@ body{
 }
 
 #table{
-    background-color: bisque;
+    background-image: url('./pitch.jpg');
+    background-size: 80%;
+    background-position-x: 50%;
     width: 600px;
     height: 300px;
     margin: 0 auto;
@@ -25,7 +27,7 @@ body{
     position: absolute;
 }
 #ball{
-    background-color: seagreen;
+    background-color: blanchedalmond;
     width: 30px;
     height: 30px;
     left: 285px;
