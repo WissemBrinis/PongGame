@@ -9,33 +9,33 @@ var  $computer=$('#computer')
 
 
 
-$table.mousemove(function(e){
+// $table.mousemove(function(e){
    
-   var  top= Math.min($table.height()-ball.height(),e.pageY - $table.offset().top);
+//    var  top= Math.min($table.height()-ball.height(),e.pageY - $table.offset().top);
 
-    ball.css({
-        top: `${top}px`
-    })
-})
+//     ball.css({
+//         top: `${top}px`
+//     })
+// })
 
-$( "#forward" ).click(function() {
-    $( "#ball" ).animate({ "left": "+=50px" }, "slow" );
+// $( "#forward" ).click(function() {
+//     $( "#ball" ).animate({ "left": "+=50px" }, "slow" );
 
-    if(ball.left===parseInt('600px')){
-        msg();
-    }
-  });
+//     if(ball.left===parseInt('600px')){
+//         msg();
+//     }
+//   });
    
-  $( "#up" ).click(function(){
-    $( ".ball" ).animate({ "top": "-=50px" }, "slow" );
-  });
-  $( "#down" ).click(function(){
-    $( ".ball" ).animate({ "bottom": "-=50px" }, "slow" );
-  });
+//   $( "#up" ).click(function(){
+//     $( ".ball" ).animate({ "top": "-=50px" }, "slow" );
+//   });
+//   $( "#down" ).click(function(){
+//     $( ".ball" ).animate({ "bottom": "-=50px" }, "slow" );
+//   });
 
-  function msg(){
-      $('#msg').text('You Win')
-  }
+//   function msg(){
+//       $('#msg').text('You Win')
+//   }
 
 
 
@@ -97,29 +97,44 @@ $('body').keypress(function(e){
     }
 })
 
-var ball=$('#ball')
+var $ball=$('#ball')
 
 
 
 var ball ={
-    x:50,
-    y:50,
-    speed:5,
+    x:285,
+    y:135,
+    speed:5
 }
 
+var counterX=0
 
-$('body').setInterval(function(){
-    if (ball.left===parseInt('255px')){
-        ball.overflow-x++
+var counterY=0
+
+setInterval(function(){
+    // if (ball.left===parseInt('255px')){
+    //     ball.overflow-x++
+    // }
+    // if(ball.left===parseInt('570px')){
+    //     ball.overflow-x--
+    // }
+    // if(ball.right===parseInt('0')){
+    //     ball.overflow-y++
+    // }
+    // if(ball.right===parseInt('300')){
+    //     ball.overflow-y++
+    // }
+    counterY+=ball.speed
+    counterX+=ball.speed
+    console.log(ball.left)
+    $ball.css("left",ball.x+counterX+'px')
+    if(ball.x===0){
+        ball.x===-ball.x
     }
-    if(ball.left===parseInt('570px')){
-        ball.overflow-x--
-    }
-    if(ball.right===parseInt('0')){
-        ball.overflow-y++
-    }
-    if(ball.right===parseInt('300')){
-        ball.overflow-y++
+   
+    $ball.css("top",ball.y+counterY+'px')
+    if(ball.y===0){
+        ball.y===-ball.y
     }
 
 },100)
