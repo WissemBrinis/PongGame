@@ -36,7 +36,5 @@ body{
     top:135px;
     position: absolute;
     border-radius: 50%;
-    overflow-x: auto;
-    overflow-y: auto;
 }
 

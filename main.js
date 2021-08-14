@@ -128,16 +128,53 @@ setInterval(function(){
     counterX+=ball.speed
     console.log(ball.left)
     $ball.css("left",ball.x+counterX+'px')
-    if(ball.x===0){
-        ball.x===-ball.x
-    }
-   
     $ball.css("top",ball.y+counterY+'px')
-    if(ball.y===0){
-        ball.y===-ball.y
-    }
+    console.log(ball.x)
+    if (ball.x>=315) {
+        ball.x = 285 ;
+      }
+    //   if (ball.y < 150) {
+    //     ball.y = -ball.y;
+    //   }
+
+    // $( "#ball" ).position({
+    //     my: "right center",
+    //     at: "right bottom",
+    //     of:$('#table'),
+    //     collision: "fit"
+    //   });
 
 },100)
+
+
+function getPositions($table) {
+    var $table = $(table);
+    var pos = $table.position();
+    var width = $table.width();
+    var height = $table.height();
+    return [ [ pos.left, pos.left + width ], [ pos.top, pos.top + height ] ];
+  }
+
+  function comparePositions(p1, p2) {
+    var x1 = p1[0] < p2[0] ? p1 : p2;
+    var x2 = p1[0] < p2[0] ? p2 : p1;
+    return x1[1] > x2[0] || x1[0] === x2[0] ? true : false;
+  }
+  function checkCollisions(){
+    var box = $(".bomb")[0];
+    var pos = getPositions(box);
+  
+    var pos2 = getPositions(this);
+    var horizontalMatch = comparePositions(pos[0], pos2[0]);
+    var verticalMatch = comparePositions(pos[1], pos2[1]);            
+    var match = horizontalMatch && verticalMatch;
+    if (match) {  }
+  }
+  
+
+
+
+
 
 
 
