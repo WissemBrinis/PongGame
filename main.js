@@ -9,16 +9,39 @@ var  $computer=$('#computer')
 
 
 
-// console.log($table)
-// player movement
-// $table.mousemove(function(e){
-//     this will set the player to not move outside of the table
-//    var  top= Math.min($table.height()-$ball.height(),e.pageY - $table.offset().top);
-//     this will contoll player 
-//     $ball.css({
-//         top: `${top}px`
-//     })
-// })
+$table.mousemove(function(e){
+   
+   var  top= Math.min($table.height()-ball.height(),e.pageY - $table.offset().top);
+
+    ball.css({
+        top: `${top}px`
+    })
+})
+
+$( "#forward" ).click(function() {
+    $( "#ball" ).animate({ "left": "+=50px" }, "slow" );
+
+    if(ball.left===parseInt('600px')){
+        msg();
+    }
+  });
+   
+  $( "#up" ).click(function(){
+    $( ".ball" ).animate({ "top": "-=50px" }, "slow" );
+  });
+  $( "#down" ).click(function(){
+    $( ".ball" ).animate({ "bottom": "-=50px" }, "slow" );
+  });
+
+  function msg(){
+      $('#msg').text('You Win')
+  }
+
+
+
+// collision
+
+
 
 
 //  move Compuer board
@@ -34,11 +57,11 @@ var  $computer=$('#computer')
 
 // how to 
 
-// // player2 movement 
-// $player2.mousemove(function(event){
+// // computer movement 
+// $computer.mousemove(function(event){
 //     console.log(event)
 //     var  top= event.pageY;
-//     $player2.css({
+//     $computer.css({
 //         top: `${top}px`
 //     })
 // },83)
@@ -50,7 +73,7 @@ var counter=0
 var counter1=0
 $('body').keypress(function(e){
     console.log(e.keyCode)
-    
+    // for key press move item by adding px
     if(e.which === 51){
         counter+=9
         $computer.css({'margin-top':counter+'px'})
@@ -87,20 +110,24 @@ var ball ={
 
 $('body').setInterval(function(){
     if (ball.left===parseInt('255px')){
-        ball.x++
+        ball.overflow-x++
     }
     if(ball.left===parseInt('570px')){
-        ball.x--
+        ball.overflow-x--
     }
     if(ball.right===parseInt('0')){
-        ball.y++
+        ball.overflow-y++
     }
     if(ball.right===parseInt('300')){
-        ball.y--
+        ball.overflow-y++
     }
 
 },100)
-});
+
+
+
+
+
 
 
 // $('body').keypress(function(e){
@@ -131,7 +158,5 @@ $('body').setInterval(function(){
     // $ball.css({'margin-right':counterRight+'px'})
 //     }
 // })
-
-
 
 
